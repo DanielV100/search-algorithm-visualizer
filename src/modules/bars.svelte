@@ -1,9 +1,17 @@
 <script lang="ts" context="module">
-  import { each } from "svelte/internal";
-
+    import type { Bars } from "../types/interfaces";
+    import type { Bar } from "../types/interfaces";
     const element = document.querySelector(".barContainer") as HTMLDivElement;
     let color:string = "green"; 
     let height:number = 300; 
+    let testBar:Bar = {
+        height:100, 
+        id:1, 
+        color:"black"
+    }
+    let bars:Bars = [
+        new Bar 
+    ]; 
     const items = [
 		{ h: 100, c: "blue"},
 		{ h: 200, c: "black"},
