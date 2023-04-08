@@ -4,6 +4,8 @@
 
 <button class="btn btn-primary">Create bars</button>
 <button class="btn btn-secondary" on:click={bubbleSort}>Bubble Sort</button>
+<button class="btn btn-secondary">Insertion Sort</button>
+<button class="btn btn-secondary">Selection Sort</button>
 
 <style>
     button {
