@@ -1,28 +1,28 @@
 <script lang="ts" context="module">
     import type { Bars } from "../types/interfaces";
-    import type { Bar } from "../types/interfaces";
-    const element = document.querySelector(".barContainer") as HTMLDivElement;
-    let color:string = "green"; 
-    let height:number = 300; 
-    let testBar:Bar = {
-        height:100, 
-        id:1, 
-        color:"black"
+    //array stores bars in it 
+    let bars:Bars = []; 
+    //color of bars
+    let color:string = "turquoise"; 
+    //max height of bars 
+    let maxHeight:number = 500;
+    //min height of bars 
+    let minHeight:number = 50; 
+
+    for(let i = 0; i < 40; i++) {
+        bars.push(
+            {height:generateRandomHeight(), id:i, color:color}
+        )
     }
-    let bars:Bars = [
-        new Bar 
-    ]; 
-    const items = [
-		{ h: 100, c: "blue"},
-		{ h: 200, c: "black"},
-		{ h: 400, c: "orange"}
-	]
+
+    function generateRandomHeight():number{
+        return Math.floor(Math.random() * maxHeight) + minHeight;  
+    }
 </script>
 
-{#each items as item}
+{#each bars as bar}
 <div class="barContainer">
-    <div class="bar"
-        style="background-color: {item.c}; height: {item.h}px;">
+    <div id="{bar.id.toString()}" class="bar" style="background-color: {bar.color}; height: {bar.height}px;">
     </div>
 </div>
 {/each}
