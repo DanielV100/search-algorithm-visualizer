@@ -9,6 +9,8 @@
     //min height of bars 
     let minHeight:number = 50; 
 
+    export let barAsDivElements = []; 
+
     for(let i = 0; i < 40; i++) {
         bars.push(
             {height:generateRandomHeight(), id:i, color:color}
@@ -18,15 +20,15 @@
     function generateRandomHeight():number{
         return Math.floor(Math.random() * maxHeight) + minHeight;  
     }
+    
 </script>
 
 {#each bars as bar}
 <div class="barContainer">
-    <div id="{bar.id.toString()}" class="bar" style="background-color: {bar.color}; height: {bar.height}px;">
+    <div bind:this={barAsDivElements[bar.id]} id="{bar.id.toString()}" class="bar" style="background-color: {bar.color}; height: {bar.height}px;">
     </div>
 </div>
 {/each}
-
 
 <style>
     .barContainer{
