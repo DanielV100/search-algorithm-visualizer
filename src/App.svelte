@@ -2,19 +2,12 @@
   import { typewriteHeading } from "./modules/heading.svelte";
   import Bars from "./modules/bars.svelte";
   import Heading from "./modules/heading.svelte";
-  import { bubbleSort } from "./algorithms/bubble-sort";
-  import { onMount } from 'svelte';
+  import Buttons from "./modules/buttons.svelte";
   window.onmouseover = typewriteHeading; 
 </script>
 
 <div>
   <Heading/>
-  <button class="btn btn-secondary" on:click={bubbleSort}>Bubble Sort</button>
+  <Buttons/>
 </div>
 <Bars/>
-
-<style>
-  button {
-    margin: 20px;
-  }
-</style>
