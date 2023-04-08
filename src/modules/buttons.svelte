@@ -2,7 +2,7 @@
     import { bubbleSort } from "../algorithms/bubble-sort";
 </script>
 
-<button class="btn btn-primary">Create bars</button>
+<button class="btn btn-primary" id="create-bars">Create bars</button>
 <button class="btn btn-secondary" on:click={bubbleSort}>Bubble Sort</button>
 <button class="btn btn-secondary">Insertion Sort</button>
 <button class="btn btn-secondary">Selection Sort</button>
@@ -11,4 +11,9 @@
     button {
       margin: 20px;
     }
+    #create-bars {
+        background-color: blueviolet;
+        border-color: blueviolet;
+    }
+
   </style>
