@@ -12,7 +12,7 @@ export async function bubbleSort() {
             //comparing height of first bar with height of second bar
             if(parseInt(heightFirstBar) > parseInt(heightSecondBar)) {
                 //first and second bar swap places
-                await new Promise(resolve => setTimeout(resolve, sortingSpeed));
+                await new Promise(resolve => setTimeout(resolve, parseInt(sortingSpeed.value)));
                 secondBar.style.height = heightFirstBar; 
                 firstBar.style.height = heightSecondBar; 
                 secondBar.style.background = barColorWhileSwapping; 
