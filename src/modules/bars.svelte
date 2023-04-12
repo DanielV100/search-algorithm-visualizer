@@ -1,6 +1,6 @@
 <script lang="ts" context="module">
     import type { Bars } from "../types/interfaces";
-    import { barColor } from "../variables/variables";
+    import { barColor } from "../variables/variables.svelte";
     //array stores bars in it 
     let bars:Bars = []; 
     //color of bars
