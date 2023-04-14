@@ -13,5 +13,6 @@
     //heading 
     const typewritterSpeed:number = 40; 
     const headingAsString:string = "how sorting works."; 
+    const headingBegin:string = "See"; 
 
-    export { barColor, barColorWhileSwapping, scrollbarMax, scrollbarMin, scrollbarStep, scrollbarValue, typewritterSpeed, headingAsString, maxHeight, minHeight, numberOfBars, delayEndSorting}; 
+    export { barColor, barColorWhileSwapping, scrollbarMax, scrollbarMin, scrollbarStep, scrollbarValue, typewritterSpeed, headingAsString, maxHeight, minHeight, numberOfBars, delayEndSorting, headingBegin}; 
