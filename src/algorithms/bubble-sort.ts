@@ -1,5 +1,5 @@
 import { barAsDivElements } from "../modules/bars.svelte";
-import { sortingSpeedScrollbar } from "../variables/speedscrollbar.svelte";
+import { sortingSpeedScrollbar } from "../modules/speedscrollbar.svelte";
 import { barColor, barColorWhileSwapping } from "../variables/variables";
 import { endSorting } from "./algo-utils";
  
