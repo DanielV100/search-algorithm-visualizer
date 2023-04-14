@@ -35,7 +35,7 @@ async function endSorting() {
 
     for (const bar of barAsDivElements) { 
         bar.style.background = "yellowgreen"; 
-        await delay(sortingSpeedScrollbar.value); 
+        await delay(10); 
     }
 }
 
