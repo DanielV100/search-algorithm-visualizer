@@ -1,26 +1,20 @@
 <script lang="ts" context="module">
     import type { Bars } from "../types/interfaces";
-    import { barColor } from "../variables/variables";
+    import { barColor, maxHeight, minHeight, numberOfBars } from "../variables/variables";
     //array stores bars in it 
     let bars:Bars = []; 
-    //color of bars
-    let color:string = "turquoise"; 
-    //max height of bars 
-    let maxHeight:number = 500;
-    //min height of bars 
-    let minHeight:number = 50; 
     //here are all bars as div's
     export let barAsDivElements = []; 
 
     //iterating through the bars and give them random height, id and color
-    for(let i = 0; i < 40; i++) {
+    for(let i = 0; i < parseInt(numberOfBars); i++) {
         bars.push(
             {height:generateRandomHeight(), id:i, color:barColor}
         )
     }
 
     //generating random height for the bars 
-    function generateRandomHeight():number{
+    function generateRandomHeight():number {
         return Math.floor(Math.random() * maxHeight) + minHeight;  
     }
     

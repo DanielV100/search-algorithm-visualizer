@@ -4,25 +4,21 @@
     let sortingSpeed:HTMLOutputElement; 
     let sortingSpeedScrollbar:HTMLInputElement; 
 
-    export { sortingSpeed }; 
-
-    //speed of swapping bars is changed here 
-    function changeSpeed():void {
-        sortingSpeed.value = sortingSpeedScrollbar.value; 
-    }
+    export { sortingSpeedScrollbar }; 
 
 </script>
 <div>
-    <input id="scrollbar" bind:this={sortingSpeedScrollbar} type="range" min={scrollbarMin} max={scrollbarMax} step={scrollbarStep} value={scrollbarValue} on:input={changeSpeed}>
-    <output bind:this={sortingSpeed} class="h4">{scrollbarValue}</output>
+   <label id="labelFaster" class="h4">faster</label> <input id="scrollbar" bind:this={sortingSpeedScrollbar} type="range" min={scrollbarMin} max={scrollbarMax} step={scrollbarStep} value={scrollbarValue}><label id="labelSlower" class="h4">slower</label>
 </div>
 
 <style>
     div{
         margin: 20px;
     }
-    #scrollbar {
-        margin-right: 10px ;
+    #labelSlower {
+        margin-left: 10px;
     }
-
+    #labelFaster{
+        margin-right: 10px;
+    }
 </style>
