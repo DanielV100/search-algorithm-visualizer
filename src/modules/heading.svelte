@@ -1,14 +1,12 @@
 <script lang="ts" context="module">
-    const headingAsString:string = "how sorting works."; 
-    let i:number = 0;
-    let animationSpeed:number = 40; 
-    
+  import { headingAsString, typewritterSpeed } from "../variables/variables";
+    let i:number = 0; 
     export function typewriteHeading():void {
         const headingElement = document.getElementById("typewritterHeading") as HTMLParagraphElement; 
         if(i < headingAsString.length) {
             headingElement.innerHTML += headingAsString.charAt(i); 
             i++; 
-            setTimeout(typewriteHeading, animationSpeed); 
+            setTimeout(typewriteHeading, typewritterSpeed); 
         }
     }
 </script>
