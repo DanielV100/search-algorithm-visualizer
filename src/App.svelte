@@ -1,15 +1,18 @@
 <script lang="ts">
   import { typewriteHeading } from "./modules/heading.svelte";
   import Bars from "./modules/bars.svelte";
+  //This is the typewritter heading
   import Heading from "./modules/heading.svelte";
+  //These are the buttons 
   import Buttons from "./modules/buttons.svelte";
-  import Variables from "./variables/variables.svelte";
+  //This is the scrollbar to change the sorting speed
+  import SpeedScrollbar from "./variables/speedscrollbar.svelte";
   window.onmouseover = typewriteHeading; 
 </script>
 
 <div>
   <Heading/>
   <Buttons/>
-  <Variables/>
+  <SpeedScrollbar/>
 </div>
 <Bars/>

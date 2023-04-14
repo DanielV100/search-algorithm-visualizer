@@ -1,5 +1,7 @@
 import { barAsDivElements } from "../modules/bars.svelte";
-import { barColor, barColorWhileSwapping, sortingSpeed } from "../variables/variables.svelte";
+import { sortingSpeed } from "../variables/speedscrollbar.svelte";
+import { barColor, barColorWhileSwapping } from "../variables/variables";
+ 
 export async function bubbleSort() {
     let swapped:boolean; 
     do {
@@ -19,6 +21,7 @@ export async function bubbleSort() {
                 firstBar.style.background = barColor; 
                 swapped = true; 
             } else {
+                //set color of the bars to default which aren't changing 
                 barAsDivElements.map((bar) => {
                     bar.style.background = barColor; 
                 }); 

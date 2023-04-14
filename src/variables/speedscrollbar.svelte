@@ -1,17 +1,10 @@
 <script lang="ts" context="module">
-    //bars
-    const barColor:string =  "BlueViolet"; 
-    const barColorWhileSwapping:string = "red"; 
-    //scrollbar
-    const scrollbarMin:string = "0";
-    const scrollbarMax:string = "150";  
-    const scrollbarStep:string = "5.0"; 
-    const scrollbarValue:string = "20"; 
+  import { scrollbarMax, scrollbarMin, scrollbarStep, scrollbarValue } from "./variables";
     //sorting speed 
     let sortingSpeed:HTMLOutputElement; 
     let sortingSpeedScrollbar:HTMLInputElement; 
 
-    export { barColor, barColorWhileSwapping, sortingSpeed }; 
+    export { sortingSpeed }; 
 
     //speed of swapping bars is changed here 
     function changeSpeed():void {
