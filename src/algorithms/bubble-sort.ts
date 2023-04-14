@@ -1,5 +1,5 @@
 import { barAsDivElements } from "../modules/bars.svelte";
-import { sortingSpeed } from "../variables/speedscrollbar.svelte";
+import { sortingSpeedScrollbar } from "../variables/speedscrollbar.svelte";
 import { barColor, barColorWhileSwapping } from "../variables/variables";
  
 export async function bubbleSort() {
@@ -14,7 +14,7 @@ export async function bubbleSort() {
             //comparing height of first bar with height of second bar
             if(parseInt(heightFirstBar) > parseInt(heightSecondBar)) {
                 //first and second bar swap places
-                await new Promise(resolve => setTimeout(resolve, parseInt(sortingSpeed.value)));
+                await new Promise(resolve => setTimeout(resolve, parseInt(sortingSpeedScrollbar.value)));
                 secondBar.style.height = heightFirstBar; 
                 firstBar.style.height = heightSecondBar; 
                 secondBar.style.background = barColorWhileSwapping; 
@@ -28,4 +28,14 @@ export async function bubbleSort() {
             }
         }
      } while(swapped); 
+     endSorting(); 
 }
+async function endSorting() {
+    const delay = (delayInMs) => new Promise((resolve) => setTimeout(resolve, delayInMs));
+
+    for (const bar of barAsDivElements) { 
+        bar.style.background = "yellowgreen"; 
+        await delay(sortingSpeedScrollbar.value); 
+    }
+}
+
