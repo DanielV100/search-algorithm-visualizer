@@ -14,15 +14,8 @@
     }
 
     //generating random height for the bars 
-    function generateRandomHeight():number {
+    export function generateRandomHeight():number {
         return Math.floor(Math.random() * maxHeight) + minHeight;  
-    }
-
-    export function refreshBarsAfterSorting() {
-        barAsDivElements.map((bar) => {
-            bar.style.height = generateRandomHeight(); 
-            bar.style.color = barColor; 
-        }); 
     }
     
 </script>
