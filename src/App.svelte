@@ -6,7 +6,7 @@
   //These are the buttons 
   import Buttons from "./modules/buttons.svelte";
   //This is the scrollbar to change the sorting speed
-  import SpeedScrollbar from "./variables/speedscrollbar.svelte";
+  import SpeedScrollbar from "./modules/speedscrollbar.svelte";
   window.onmouseover = typewriteHeading; 
 </script>
 
