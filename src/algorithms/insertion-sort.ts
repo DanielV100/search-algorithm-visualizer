@@ -1,9 +1,10 @@
-import { barAsDivElements } from "../modules/bars.svelte";
+import { barAsDivElements, refreshBarsAfterSorting } from "../modules/bars.svelte";
 import { sortingSpeedScrollbar } from "../modules/speedscrollbar.svelte";
 import { barColor, barColorWhileSwapping } from "../variables/variables";
 import { endSorting } from "./algo-utils";
 
 export async function insertionSort() {
+    refreshBarsAfterSorting(); 
     for(let i = 0; i < barAsDivElements.length; i++) {
         let j:number = i; 
         let m:string = barAsDivElements[i].style.height; 
