@@ -1,6 +1,7 @@
 import { barAsDivElements } from "../modules/bars.svelte";
 import { sortingSpeedScrollbar } from "../variables/speedscrollbar.svelte";
 import { barColor, barColorWhileSwapping } from "../variables/variables";
+import { endSorting } from "./algo-utils";
  
 export async function bubbleSort() {
     let swapped:boolean; 
@@ -30,12 +31,5 @@ export async function bubbleSort() {
      } while(swapped); 
      endSorting(); 
 }
-async function endSorting() {
-    const delay = (delayInMs) => new Promise((resolve) => setTimeout(resolve, delayInMs));
 
-    for (const bar of barAsDivElements) { 
-        bar.style.background = "yellowgreen"; 
-        await delay(10); 
-    }
-}
 
