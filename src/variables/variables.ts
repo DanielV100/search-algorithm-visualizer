@@ -1,5 +1,6 @@
     //bars
-    const barColor:string =  "BlueViolet"; 
+    let barColor:string =  "BlueViolet"; 
+    let barColorDark:string = "black"; 
     const barColorWhileSwapping:string = "red"; 
     const maxHeight:number = 500;
     const minHeight:number = 50; 
@@ -16,4 +17,4 @@
     const headingAsString:string = "how sorting works."; 
     const headingBegin:string = "See"; 
 
-    export { barColor, barColorWhileSwapping, scrollbarMax, scrollbarMin, scrollbarStep, scrollbarValue, typewritterSpeed, headingAsString, maxHeight, minHeight, numberOfBars, delayEndSorting, headingBegin, barColorEndSorting}; 
+    export { barColor, barColorWhileSwapping, scrollbarMax, scrollbarMin, scrollbarStep, scrollbarValue, typewritterSpeed, headingAsString, maxHeight, minHeight, numberOfBars, delayEndSorting, headingBegin, barColorEndSorting, barColorDark}; 

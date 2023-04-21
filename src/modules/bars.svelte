@@ -5,7 +5,6 @@
     let bars:Bars = []; 
     //here are all bars as div's
     export let barAsDivElements = []; 
-
     //iterating through the bars and give them random height, id and color
     for(let i = 0; i < parseInt(numberOfBars); i++) {
         bars.push(

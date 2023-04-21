@@ -7,6 +7,7 @@
   import Buttons from "./modules/buttons.svelte";
   //This is the scrollbar to change the sorting speed
   import SpeedScrollbar from "./modules/speedscrollbar.svelte";
+  import Darkmode from "./modules/darkmode.svelte";
   window.onmouseover = typewriteHeading; 
 </script>
 
@@ -16,4 +17,5 @@
   <SpeedScrollbar/>
 </div>
 <Bars/>
+<Darkmode/>
 
