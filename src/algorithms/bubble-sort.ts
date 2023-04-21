@@ -4,7 +4,7 @@ import { barColor, barColorWhileSwapping } from "../variables/variables";
 import { endSorting, refreshBarsAfterSorting } from "./algo-utils";
  
 export async function bubbleSort() {
-    refreshBarsAfterSorting(); 
+    refreshBarsAfterSorting();
     let swapped:boolean; 
     do {
         swapped = false; 
