@@ -1,30 +1,29 @@
 <script lang="ts">
-  import { barColor, barColorDark } from "../variables/variables";
+  import { barColor, barColorDark, isDarkmode, setBarColor, setIsDarkmode } from "../variables/variables";
   import { barAsDivElements } from "./bars.svelte";
     //changing the color theme on button click
     function changeColorTheme() {
-        console.log(getIfColorThemeIsDarkmode()); 
-        if(getIfColorThemeIsDarkmode()) {
+        if(getIfCurrentColorThemeIsDarkmode()) {
             barAsDivElements.map((bar) => {
             bar.style.background = barColor; 
          }); 
+         setBarColor("blueviolett"); 
+         setIsDarkmode(false); 
         } else {
             barAsDivElements.map((bar) => {
             bar.style.background = barColorDark; 
          }); 
+         setBarColor("black"); 
+         setIsDarkmode(true); 
         }
         
     }
-    function getIfColorThemeIsDarkmode():boolean {
-        console.log(barAsDivElements[0].style.background.toString()); 
-        let isDarkmode:boolean; 
-        if((barAsDivElements[0].style.background).toString() === barColor) {
-            console.log("Test"); 
-            isDarkmode = false; 
-        } else {
-            isDarkmode = true; 
+    function getIfCurrentColorThemeIsDarkmode():boolean {
+        if(isDarkmode === true) {
+            return true; 
+        } else { 
+            return false; 
         }
-        return isDarkmode; 
     }
 
 </script>
