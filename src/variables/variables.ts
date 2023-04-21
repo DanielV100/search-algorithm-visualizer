@@ -1,4 +1,5 @@
 
+    //gets color theme from local storage and sets the suitable bar color 
     function getColorThemeFromLocalStorage():void {
         let colorTheme:string = localStorage.getItem("colorTheme"); 
         if(colorTheme === "light") {
