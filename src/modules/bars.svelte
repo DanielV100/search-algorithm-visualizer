@@ -6,17 +6,19 @@
     //here are all bars as div's
     export let barAsDivElements = []; 
     //iterating through the bars and give them random height, id and color
-    for(let i = 0; i < parseInt(numberOfBars); i++) {
+    export function generateBars():void {
+        for(let i = 0; i < parseInt(numberOfBars); i++) {
         bars.push(
             {height:generateRandomHeight(), id:i, color:barColor}
         )
+        }
     }
 
     //generating random height for the bars 
     export function generateRandomHeight():number {
         return Math.floor(Math.random() * maxHeight) + minHeight;  
     }
-    
+    generateBars(); 
 </script>
 
 {#each bars as bar}

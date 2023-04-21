@@ -1,12 +1,13 @@
 <script lang="ts">
     import { bubbleSort } from "../algorithms/bubble-sort";
   import { insertionSort } from "../algorithms/insertion-sort";
+  import { selectionSort } from "../algorithms/selection-sort";
 </script>
 
 <button class="btn btn-primary" id="create-bars">Create bars</button>
 <button class="btn btn-secondary" on:click={bubbleSort}>Bubble Sort</button>
 <button class="btn btn-secondary" on:click={insertionSort}>Insertion Sort</button>
-<button class="btn btn-secondary">Selection Sort</button>
+<button class="btn btn-secondary" on:click={selectionSort}>Selection Sort</button>
 
 <style>
     button {

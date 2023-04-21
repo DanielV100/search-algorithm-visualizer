@@ -24,7 +24,7 @@
 </script>
 
 <div>
-  <Heading/>
+  <Heading/> 
   <Buttons/> <Colortheme/>
   <SpeedScrollbar/>
 </div>
