@@ -1,6 +1,18 @@
+
+    function getColorThemeFromLocalStorage():void {
+        let colorTheme:string = localStorage.getItem("colorTheme"); 
+        if(colorTheme === "light") {
+            barColor = barColorLight; 
+        } else if(colorTheme === "dark") {
+            barColor = barColorDark; 
+        } else {
+            barColor = barColorLight; 
+        }
+    }
     //bars
-    let barColor:string =  "blueviolet"; 
+    let barColor:string; 
     let barColorDark:string = "black"; 
+    let barColorLight:string = "blueviolet"
     const barColorWhileSwapping:string = "red"; 
     const maxHeight:number = 500;
     const minHeight:number = 50; 
@@ -19,11 +31,12 @@
     //color theme 
     let isDarkmode:boolean = false; 
 
+
     function setIsDarkmode(value:boolean):void {
         isDarkmode = value; 
     }
     function setBarColor(color:string):void {
         barColor = color; 
     }
-
-    export { barColor, barColorWhileSwapping, scrollbarMax, scrollbarMin, scrollbarStep, scrollbarValue, typewritterSpeed, headingAsString, maxHeight, minHeight, numberOfBars, delayEndSorting, headingBegin, barColorEndSorting, barColorDark, isDarkmode, setIsDarkmode, setBarColor}; 
+    getColorThemeFromLocalStorage(); 
+    export { barColor, barColorWhileSwapping, scrollbarMax, scrollbarMin, scrollbarStep, scrollbarValue, typewritterSpeed, headingAsString, maxHeight, minHeight, numberOfBars, delayEndSorting, headingBegin, barColorEndSorting, barColorDark, isDarkmode, setIsDarkmode, setBarColor, barColorLight }; 

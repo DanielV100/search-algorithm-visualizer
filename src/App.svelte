@@ -7,15 +7,26 @@
   import Buttons from "./modules/buttons.svelte";
   //This is the scrollbar to change the sorting speed
   import SpeedScrollbar from "./modules/speedscrollbar.svelte";
-  import Darkmode from "./modules/darkmode.svelte";
+  import { barColorDark, barColorLight, setBarColor } from "./variables/variables";
+  import Colortheme from "./modules/colortheme.svelte";
   window.onmouseover = typewriteHeading; 
+  function init():void {
+    let colorTheme:string = localStorage.getItem("colorTheme"); 
+    if(colorTheme === "light") {
+       setBarColor(barColorLight); 
+    } else if(colorTheme === "dark") {
+      setBarColor(barColorDark); 
+    } else {
+      setBarColor(barColorLight); 
+    }
+  }
+  init(); 
 </script>
 
 <div>
   <Heading/>
-  <Buttons/>
+  <Buttons/> <Colortheme/>
   <SpeedScrollbar/>
 </div>
 <Bars/>
-<Darkmode/>
 
