@@ -1,2 +1,2 @@
-# Search Algorithm Visualizer
+# Sort Algorithm Visualizer
 
