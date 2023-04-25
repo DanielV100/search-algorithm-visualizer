@@ -26,6 +26,7 @@
     <div bind:this={barAsDivElements[bar.id]} id="{bar.id.toString()}" class="bar" style="background-color: {bar.color}; height: {bar.height}px;">
     </div>
 </div>
+
 {/each}
 
 <style>

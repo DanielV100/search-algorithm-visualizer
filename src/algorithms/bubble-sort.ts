@@ -19,6 +19,7 @@ export async function bubbleSort() {
                 await new Promise(resolve => setTimeout(resolve, parseInt(sortingSpeedScrollbar.value)));
                 secondBar.style.height = heightFirstBar; 
                 firstBar.style.height = heightSecondBar; 
+                console.log(secondBar.style.height + " changed with " + firstBar.style.height); 
                 secondBar.style.background = barColorWhileSwapping; 
                 firstBar.style.background = barColor; 
                 swapped = true; 

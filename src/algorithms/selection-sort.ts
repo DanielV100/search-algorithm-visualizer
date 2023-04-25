@@ -2,7 +2,7 @@ import { barAsDivElements } from "../modules/bars.svelte";
 import { sortingSpeedScrollbar } from "../modules/speedscrollbar.svelte";
 import { barColor, barColorWhileSwapping } from "../variables/variables";
 import { endSorting, refreshBarsAfterSorting } from "./algo-utils";
-
+let test:number = 0; 
 export async function selectionSort() {
     refreshBarsAfterSorting(); 
     let marker:number = barAsDivElements.length - 1; 
