@@ -4,13 +4,15 @@
   import { selectionSort } from "../algorithms/selection-sort";
   import { colors } from "../variables/stores";
   import { setNumberOfBars } from "../variables/variables";
+  import { generateBars } from "./bars.svelte";
   let buttonColorValue:string; 
   //button color can be changed dynamically - just use buttonColor.update(clor => "{color}"); 
   colors.subscribe(color => {
     buttonColorValue = color; 
   }); 
   function createCertainAmountOfBars():void{
-    setNumberOfBars("20"); 
+    setNumberOfBars("20");
+    generateBars(20);  
   }
 </script>
 

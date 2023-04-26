@@ -3,7 +3,6 @@ import { sortingSpeedScrollbar } from "../components/speedscrollbar.svelte";
 import { colors } from "../variables/stores";
 import { barColorWhileSwapping } from "../variables/variables";
 import { endSorting, refreshBarsAfterSorting } from "./algo-utils";
-let test:number = 0; 
 
 let color:string; 
 colors.subscribe(value => {
