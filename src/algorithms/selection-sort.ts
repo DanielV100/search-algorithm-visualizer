@@ -1,12 +1,12 @@
 import { barAsDivElements } from "../components/bars.svelte";
 import { sortingSpeedScrollbar } from "../components/speedscrollbar.svelte";
-import { barColor } from "../variables/stores";
+import { colors } from "../variables/stores";
 import { barColorWhileSwapping } from "../variables/variables";
 import { endSorting, refreshBarsAfterSorting } from "./algo-utils";
 let test:number = 0; 
 
 let color:string; 
-barColor.subscribe(value => {
+colors.subscribe(value => {
     color = value; 
 }); 
 export async function selectionSort() {

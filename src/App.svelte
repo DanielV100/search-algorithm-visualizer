@@ -9,8 +9,6 @@
   import SpeedScrollbar from "./components/speedscrollbar.svelte";
   import Colortheme from "./components/colortheme.svelte";
   window.onmouseover = typewriteHeading; 
-   
-
 </script>
 
 <div>

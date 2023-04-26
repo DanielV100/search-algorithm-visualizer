@@ -3,15 +3,12 @@ import { writable, type Writable } from "svelte/store";
 //colors 
 const colorLight:string  = "blueviolet"; 
 const colorDark:string = "black";
+const colors:Writable<string> = writable(colorLight)
 
 //colortheme 
 const isDarkmode:Writable<boolean> = writable(false);
 
-//color of the button
-const buttonColor:Writable<string> = writable(colorLight); 
 
-//color of the bars 
-const barColor:Writable<string> = writable(colorLight)
 
 //bars
 const barsStore = writable([]); 
@@ -24,16 +21,13 @@ const headingBegin:string = "See";
 function init():void {
     let colorTheme:string = localStorage.getItem("colorTheme"); 
     if(colorTheme === "light") {
-      buttonColor.update(color => colorLight)
-      barColor.update(value => colorLight)
+      colors.update(value => colorLight)
     } else if(colorTheme === "dark") {
-      buttonColor.update(color => colorDark)
-      barColor.update(value => colorDark)
+      colors.update(value => colorDark)
     } else {
-      buttonColor.update(color => colorLight)
-      barColor.update(value => colorLight) 
+      colors.update(value => colorLight) 
     }
   }
   init();
 
-export { buttonColor, colorLight, colorDark, barsStore, isDarkmode, typewritterSpeed, headingAsString, headingBegin, barColor }
+export { colorLight, colorDark, barsStore, isDarkmode, typewritterSpeed, headingAsString, headingBegin, colors }

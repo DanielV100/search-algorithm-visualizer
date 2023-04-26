@@ -1,7 +1,7 @@
 <script lang="ts" context="module">
   import { afterUpdate } from "svelte";
     import type { Bars } from "../types/interfaces";
-  import { barColor, barsStore } from "../variables/stores";
+  import { colors, barsStore } from "../variables/stores";
     import { maxHeight, minHeight, numberOfBars } from "../variables/variables";
     //array stores bars in it 
     export let bars = []; 
@@ -9,7 +9,7 @@
     export let barAsDivElements = []; 
     let color:string;
     
-    barColor.subscribe(value => {
+    colors.subscribe(value => {
         color = value; 
     }); 
     barsStore.subscribe(value => {

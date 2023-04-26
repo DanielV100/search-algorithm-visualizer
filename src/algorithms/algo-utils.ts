@@ -1,8 +1,8 @@
 import { barAsDivElements, generateBars, generateRandomHeight } from "../components/bars.svelte";
-import { barColor } from "../variables/stores";
+import { colors } from "../variables/stores";
 import { barColorEndSorting, delayEndSorting } from "../variables/variables";
 let color:string; 
-barColor.subscribe(value => {
+colors.subscribe(value => {
     color = value; 
 }); 
 //all bars get yellowgreen after sorting 
