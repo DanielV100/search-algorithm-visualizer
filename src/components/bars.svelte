@@ -7,9 +7,8 @@
     export let bars = []; 
     //here are all bars as div's
     export let barAsDivElements = []; 
-    let width = window.innerHeight; 
     function calcHowManyBarsFit():number {
-        return Math.round(width/32); 
+        return Math.round(window.innerWidth/31); 
     }
 
     barsStore.subscribe(value => {
