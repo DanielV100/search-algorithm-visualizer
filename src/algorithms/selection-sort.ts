@@ -1,8 +1,14 @@
 import { barAsDivElements } from "../components/bars.svelte";
 import { sortingSpeedScrollbar } from "../components/speedscrollbar.svelte";
-import { barColor, barColorWhileSwapping } from "../variables/variables";
+import { barColor } from "../variables/stores";
+import { barColorWhileSwapping } from "../variables/variables";
 import { endSorting, refreshBarsAfterSorting } from "./algo-utils";
 let test:number = 0; 
+
+let color:string; 
+barColor.subscribe(value => {
+    color = value; 
+}); 
 export async function selectionSort() {
     refreshBarsAfterSorting(); 
     let marker:number = barAsDivElements.length - 1; 
@@ -21,13 +27,13 @@ export async function selectionSort() {
         barAsDivElements[max].style.background = barColorWhileSwapping; 
         for(let x:number = 0; x < barAsDivElements.length; x++) {
             if((x != marker) && (x != max)) {
-                barAsDivElements[x].style.background = barColor; 
+                barAsDivElements[x].style.background = color; 
             }
         }
         marker--; 
     }
     for (let y:number = 0; y < barAsDivElements.length; y++) {
-        barAsDivElements[y].style.background = barColor;
+        barAsDivElements[y].style.background = color;
       }
     endSorting();  
 }

@@ -1,8 +1,14 @@
 import { barAsDivElements } from "../components/bars.svelte";
 import { sortingSpeedScrollbar } from "../components/speedscrollbar.svelte";
-import { barColor, barColorWhileSwapping } from "../variables/variables";
+import { barColor } from "../variables/stores";
+import { barColorWhileSwapping } from "../variables/variables";
 import { endSorting, refreshBarsAfterSorting } from "./algo-utils";
- 
+
+let color:string; 
+barColor.subscribe(value => {
+    color = value; 
+}); 
+
 export async function bubbleSort() {
     refreshBarsAfterSorting();
     let swapped:boolean; 
@@ -21,12 +27,12 @@ export async function bubbleSort() {
                 firstBar.style.height = heightSecondBar; 
                 console.log(secondBar.style.height + " changed with " + firstBar.style.height); 
                 secondBar.style.background = barColorWhileSwapping; 
-                firstBar.style.background = barColor; 
+                firstBar.style.background = color; 
                 swapped = true; 
             } else {
                 //set color of the bars to default which aren't changing 
                 barAsDivElements.map((bar) => {
-                    bar.style.background = barColor; 
+                    bar.style.background = color; 
                 }); 
             }
         }

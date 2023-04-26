@@ -1,11 +1,14 @@
 <script lang="ts" context="module">
   import { headingAsString, headingBegin, typewritterSpeed } from "../variables/stores";
-    let i:number = 0; 
+    let counter:number = 0; 
+
     export function typewriteHeading():void {
+        //gets heading element from DOM 
         const headingElement = document.getElementById("typewritterHeading") as HTMLParagraphElement; 
-        if(i < headingAsString.length) {
-            headingElement.innerHTML += headingAsString.charAt(i); 
-            i++; 
+        //adds step by step a letter (this is the so called typewritter effect)
+        if(counter < headingAsString.length) {
+            headingElement.innerHTML += headingAsString.charAt(counter); 
+            counter++; 
             setTimeout(typewriteHeading, typewritterSpeed); 
         }
     }

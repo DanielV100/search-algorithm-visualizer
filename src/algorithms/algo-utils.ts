@@ -1,5 +1,10 @@
 import { barAsDivElements, generateBars, generateRandomHeight } from "../components/bars.svelte";
-import { barColor, barColorEndSorting, delayEndSorting } from "../variables/variables";
+import { barColor } from "../variables/stores";
+import { barColorEndSorting, delayEndSorting } from "../variables/variables";
+let color:string; 
+barColor.subscribe(value => {
+    color = value; 
+}); 
 //all bars get yellowgreen after sorting 
 export async function endSorting() {
     const delay = (delayInMs) => new Promise((resolve) => setTimeout(resolve, delayInMs));
@@ -12,6 +17,6 @@ export async function endSorting() {
 export function refreshBarsAfterSorting() {
     barAsDivElements.map((bar) => {
         bar.style.height = generateRandomHeight() + "px"; 
-        bar.style.background = barColor; 
+        bar.style.background = color; 
     });
 }

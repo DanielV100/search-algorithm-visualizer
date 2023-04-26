@@ -1,28 +1,34 @@
 <script lang="ts" context="module">
   import { afterUpdate } from "svelte";
     import type { Bars } from "../types/interfaces";
-  import { barsStore } from "../variables/stores";
-    import { barColor, maxHeight, minHeight, numberOfBars } from "../variables/variables";
+  import { barColor, barsStore } from "../variables/stores";
+    import { maxHeight, minHeight, numberOfBars } from "../variables/variables";
     //array stores bars in it 
     export let bars = []; 
     //here are all bars as div's
     export let barAsDivElements = []; 
-    function calcHowManyBarsFit():number {
-        //width - padding/bar width
-        return Math.round((window.innerWidth-20)/29); 
-    }
-
+    let color:string;
+    
+    barColor.subscribe(value => {
+        color = value; 
+    }); 
     barsStore.subscribe(value => {
         barAsDivElements = []; 
         console.log(barAsDivElements); 
         bars = value; 
     });
+
+    function calcHowManyBarsFit():number {
+        //width - padding/bar width
+        return Math.round((window.innerWidth-20)/29); 
+    }
+
     //iterating through the bars and give them random height, id and color
     export function generateBars(numberOfBars:number):void {
         bars = []; 
         for(let i:number = 0; i < numberOfBars; i++) { 
             barAsDivElements = []; 
-            bars = [...bars, {height:generateRandomHeight(), id:i, color:barColor}]; 
+            bars = [...bars, {height:generateRandomHeight(), id:i, color:color}]; 
       }
       barsStore.set(bars);
     }

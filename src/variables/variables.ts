@@ -1,17 +1,7 @@
 
     //gets color theme from local storage and sets the suitable bar color 
-    function getColorThemeFromLocalStorage():void {
-        let colorTheme:string = localStorage.getItem("colorTheme"); 
-        if(colorTheme === "light") {
-            barColor = barColorLight; 
-        } else if(colorTheme === "dark") {
-            barColor = barColorDark; 
-        } else {
-            barColor = barColorLight; 
-        }
-    }
+    
     //bars
-    let barColor:string; 
     let barColorDark:string = "black"; 
     let barColorLight:string = "blueviolet"
     const barColorWhileSwapping:string = "red"; 
@@ -30,8 +20,6 @@
 function setNumberOfBars(value:string):void{
     numberOfBars = value; 
 }
-    function setBarColor(color:string):void {
-        barColor = color; 
-    }
-    getColorThemeFromLocalStorage(); 
-    export { barColor, barColorWhileSwapping, scrollbarMax, scrollbarMin, scrollbarStep, scrollbarValue, maxHeight, minHeight, numberOfBars, delayEndSorting, barColorEndSorting, barColorDark, setBarColor, barColorLight, setNumberOfBars}; 
+
+
+    export { barColorWhileSwapping, scrollbarMax, scrollbarMin, scrollbarStep, scrollbarValue, maxHeight, minHeight, numberOfBars, delayEndSorting, barColorEndSorting, barColorDark, barColorLight, setNumberOfBars}; 
