@@ -9,14 +9,18 @@
   import SpeedScrollbar from "./modules/speedscrollbar.svelte";
   import { barColorDark, barColorLight, setBarColor } from "./variables/variables";
   import Colortheme from "./modules/colortheme.svelte";
+  import { buttonColor, buttonColorDark, buttonColorLight } from "./variables/stores";
   window.onmouseover = typewriteHeading; 
   function init():void {
     let colorTheme:string = localStorage.getItem("colorTheme"); 
     if(colorTheme === "light") {
-       setBarColor(barColorLight); 
+      buttonColor.update(color => buttonColorLight)
+      setBarColor(barColorLight); 
     } else if(colorTheme === "dark") {
+      buttonColor.update(color => buttonColorDark)
       setBarColor(barColorDark); 
     } else {
+      buttonColor.update(color => buttonColorLight)
       setBarColor(barColorLight); 
     }
   }

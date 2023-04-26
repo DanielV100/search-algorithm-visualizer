@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { buttonColor, buttonColorDark, buttonColorLight } from "../variables/stores";
   import {
     barColor,
     barColorDark,
@@ -36,6 +37,7 @@
         bar.style.background = barColor;
       });
       localStorage.setItem("colorTheme", "light");
+      buttonColor.update(color => buttonColorDark); 
       setIsDarkmode(false);
     } else {
       setBarColor(barColorDark);
@@ -45,6 +47,7 @@
         bar.style.background = barColorDark;
       });
       localStorage.setItem("colorTheme", "dark");
+      buttonColor.update(color => buttonColorLight)
       setIsDarkmode(true);
     }
   }
