@@ -3,14 +3,20 @@
   import { insertionSort } from "../algorithms/insertion-sort";
   import { selectionSort } from "../algorithms/selection-sort";
   import { buttonColor } from "../variables/stores";
+  import { numberOfBars, setNumberOfBars } from "../variables/variables";
+  import { generateBars } from "./bars.svelte";
   let buttonColorValue:string; 
   //button color can be changed dynamically - just use buttonColor.update(clor => "{color}"); 
   buttonColor.subscribe(color => {
     buttonColorValue = color; 
   }); 
+  function test():void{
+    setNumberOfBars("20"); 
+    generateBars(); 
+  }
 </script>
 
-<button class="btn btn-primary" id="create-bars" style="background-color: {buttonColorValue}; border-color: {buttonColorValue};">Create bars</button>
+<button class="btn btn-primary" on:click={test} style="background-color: {buttonColorValue}; border-color: {buttonColorValue};">Create bars</button>
 <button class="btn btn-secondary" on:click={bubbleSort}>Bubble Sort</button>
 <button class="btn btn-secondary" on:click={insertionSort}>Insertion Sort</button>
 <button class="btn btn-secondary" on:click={selectionSort}>Selection Sort</button>

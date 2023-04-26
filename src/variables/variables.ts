@@ -32,7 +32,9 @@
     //color theme 
     let isDarkmode:boolean = false; 
 
-
+function setNumberOfBars(value:string):void{
+    numberOfBars = value; 
+}
     function setIsDarkmode(value:boolean):void {
         isDarkmode = value; 
     }
@@ -40,4 +42,4 @@
         barColor = color; 
     }
     getColorThemeFromLocalStorage(); 
-    export { barColor, barColorWhileSwapping, scrollbarMax, scrollbarMin, scrollbarStep, scrollbarValue, typewritterSpeed, headingAsString, maxHeight, minHeight, numberOfBars, delayEndSorting, headingBegin, barColorEndSorting, barColorDark, isDarkmode, setIsDarkmode, setBarColor, barColorLight }; 
+    export { barColor, barColorWhileSwapping, scrollbarMax, scrollbarMin, scrollbarStep, scrollbarValue, typewritterSpeed, headingAsString, maxHeight, minHeight, numberOfBars, delayEndSorting, headingBegin, barColorEndSorting, barColorDark, isDarkmode, setIsDarkmode, setBarColor, barColorLight, setNumberOfBars}; 
