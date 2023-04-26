@@ -1,7 +1,5 @@
 <script lang="ts" context="module">
-  import { afterUpdate } from "svelte";
-    import type { Bars } from "../types/interfaces";
-  import { colors, barsStore } from "../variables/stores";
+    import { colors, barsStore } from "../variables/stores";
     import { maxHeight, minHeight, numberOfBars } from "../variables/variables";
     //array stores bars in it 
     export let bars = []; 
@@ -45,7 +43,6 @@
     </div>
 </div>
 {/each}
-
 
 <style>
     .barContainer{

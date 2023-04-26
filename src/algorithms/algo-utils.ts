@@ -1,4 +1,4 @@
-import { barAsDivElements, generateBars, generateRandomHeight } from "../components/bars.svelte";
+import { barAsDivElements, generateRandomHeight } from "../components/bars.svelte";
 import { colors } from "../variables/stores";
 import { barColorEndSorting, delayEndSorting } from "../variables/variables";
 let color:string; 

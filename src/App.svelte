@@ -8,6 +8,7 @@
   //This is the scrollbar to change the sorting speed
   import SpeedScrollbar from "./components/speedscrollbar.svelte";
   import Colortheme from "./components/colortheme.svelte";
+  //on mouse hover comes the heading with typewritter effect
   window.onmouseover = typewriteHeading; 
 </script>
 

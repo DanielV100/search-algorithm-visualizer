@@ -8,8 +8,6 @@ const colors:Writable<string> = writable(colorLight)
 //colortheme 
 const isDarkmode:Writable<boolean> = writable(false);
 
-
-
 //bars
 const barsStore = writable([]); 
 

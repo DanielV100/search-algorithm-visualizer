@@ -2,7 +2,6 @@
   import { colors } from "../variables/stores";
   import { scrollbarMax, scrollbarMin, scrollbarStep, scrollbarValue } from "../variables/variables";
     //sorting speed 
-    let sortingSpeed:HTMLOutputElement; 
     let sortingSpeedScrollbar:HTMLInputElement; 
     let color:string; 
     colors.subscribe(value => {
