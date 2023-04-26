@@ -1,15 +1,12 @@
 <script lang="ts">
-  import { buttonColor, buttonColorDark, buttonColorLight } from "../variables/stores";
-  import {
-    barColor,
-    barColorDark,
-    barColorLight,
-    isDarkmode,
-    setBarColor,
-    setIsDarkmode,
-  } from "../variables/variables";
+  import { buttonColor, buttonColorDark, buttonColorLight, isDarkmode } from "../variables/stores";
+  import { barColor,barColorDark, barColorLight,setBarColor } from "../variables/variables";
   import { barAsDivElements } from "./bars.svelte";
-
+  let darkmode:boolean; 
+  
+  isDarkmode.subscribe(value => {
+    darkmode = value; 
+  }); 
   //color mode is used for param d from svg code - initially it's the dark mode icon
   let colorMode: string;
 
@@ -39,7 +36,7 @@
       localStorage.setItem("colorTheme", "light");
       //this updates the button color into light 
       buttonColor.update(color => buttonColorLight)
-      setIsDarkmode(false);
+      isDarkmode.update(value => false);
     } else {
       setBarColor(barColorDark);
       colorMode =
@@ -50,11 +47,11 @@
       localStorage.setItem("colorTheme", "dark");
       //this updates the button color into dark
       buttonColor.update(color => buttonColorDark); 
-      setIsDarkmode(true);
+      isDarkmode.update(value => true);
     }
   }
   function getIfCurrentColorThemeIsDarkmode(): boolean {
-    if (isDarkmode === true) {
+    if (darkmode === true) {
       return true;
     } else {
       return false;

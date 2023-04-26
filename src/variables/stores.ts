@@ -1,5 +1,7 @@
 import { writable, type Writable } from "svelte/store";
-import type { Bars } from "../types/interfaces";
+
+//colortheme 
+const isDarkmode:Writable<boolean> = writable(false);
 
 //color of the buttons
 const buttonColor:Writable<string> = writable("blueviolet"); 
@@ -9,4 +11,4 @@ const buttonColorDark:string = "black";
 //bars
 const barsStore = writable([]); 
 
-export { buttonColor, buttonColorDark, buttonColorLight, barsStore }
+export { buttonColor, buttonColorDark, buttonColorLight, barsStore, isDarkmode }

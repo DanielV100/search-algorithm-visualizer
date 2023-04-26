@@ -8,6 +8,7 @@
     //here are all bars as div's
     export let barAsDivElements = []; 
     function calcHowManyBarsFit():number {
+        //width - padding/bar width
         return Math.round((window.innerWidth-20)/29); 
     }
 
