@@ -24,7 +24,7 @@
     const scrollbarMin:string = "0";
     const scrollbarMax:string = "150";  
     const scrollbarStep:string = "5.0"; 
-    const scrollbarValue:string = "20"; 
+    const scrollbarValue:string = "75"; 
     //heading 
     const typewritterSpeed:number = 40; 
     const headingAsString:string = "how sorting works."; 
