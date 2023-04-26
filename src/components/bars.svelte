@@ -1,5 +1,5 @@
 <script lang="ts" context="module">
-  import type { Bars } from "../types/interfaces";
+    import type { Bars } from "../types/interfaces";
     import { colors, barsStore } from "../variables/stores";
     import { maxHeight, minHeight, numberOfBars } from "../variables/variables";
     //array stores bars in it. An element is from type Bars which can be found in folder "types" 
