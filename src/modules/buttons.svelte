@@ -4,6 +4,7 @@
   import { selectionSort } from "../algorithms/selection-sort";
   import { buttonColor } from "../variables/stores";
   let buttonColorValue:string; 
+  //button color can be changed dynamically - just use buttonColor.update(clor => "{color}"); 
   buttonColor.subscribe(color => {
     buttonColorValue = color; 
   }); 
