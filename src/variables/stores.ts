@@ -11,4 +11,9 @@ const buttonColorDark:string = "black";
 //bars
 const barsStore = writable([]); 
 
-export { buttonColor, buttonColorDark, buttonColorLight, barsStore, isDarkmode }
+//heading 
+const typewritterSpeed:number = 40; 
+const headingAsString:string = "how sorting works."; 
+const headingBegin:string = "See"; 
+
+export { buttonColor, buttonColorDark, buttonColorLight, barsStore, isDarkmode, typewritterSpeed, headingAsString, headingBegin }

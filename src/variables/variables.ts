@@ -25,10 +25,7 @@
     const scrollbarMax:string = "150";  
     const scrollbarStep:string = "5.0"; 
     const scrollbarValue:string = "75"; 
-    //heading 
-    const typewritterSpeed:number = 40; 
-    const headingAsString:string = "how sorting works."; 
-    const headingBegin:string = "See"; 
+
 
 function setNumberOfBars(value:string):void{
     numberOfBars = value; 
@@ -37,4 +34,4 @@ function setNumberOfBars(value:string):void{
         barColor = color; 
     }
     getColorThemeFromLocalStorage(); 
-    export { barColor, barColorWhileSwapping, scrollbarMax, scrollbarMin, scrollbarStep, scrollbarValue, typewritterSpeed, headingAsString, maxHeight, minHeight, numberOfBars, delayEndSorting, headingBegin, barColorEndSorting, barColorDark, setBarColor, barColorLight, setNumberOfBars}; 
+    export { barColor, barColorWhileSwapping, scrollbarMax, scrollbarMin, scrollbarStep, scrollbarValue, maxHeight, minHeight, numberOfBars, delayEndSorting, barColorEndSorting, barColorDark, setBarColor, barColorLight, setNumberOfBars}; 

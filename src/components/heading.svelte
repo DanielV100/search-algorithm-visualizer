@@ -1,5 +1,5 @@
 <script lang="ts" context="module">
-  import { headingAsString, headingBegin, typewritterSpeed } from "../variables/variables";
+  import { headingAsString, headingBegin, typewritterSpeed } from "../variables/stores";
     let i:number = 0; 
     export function typewriteHeading():void {
         const headingElement = document.getElementById("typewritterHeading") as HTMLParagraphElement; 
