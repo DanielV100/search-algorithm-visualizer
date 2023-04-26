@@ -1,19 +1,26 @@
 <script lang="ts" context="module">
     import type { Bars } from "../types/interfaces";
+  import { barsStore } from "../variables/stores";
     import { barColor, maxHeight, minHeight, numberOfBars } from "../variables/variables";
     //array stores bars in it 
-    let bars:Bars = []; 
+    export let bars = []; 
     //here are all bars as div's
     export let barAsDivElements = []; 
     //iterating through the bars and give them random height, id and color
-    export function generateBars():void {
-        for(let i = 0; i < parseInt(numberOfBars); i++) {
-        bars.push(
-            {height:generateRandomHeight(), id:i, color:barColor}
-        )
-        }
-    }
 
+    barsStore.subscribe(value => {
+        barAsDivElements = []; 
+        console.log(barAsDivElements); 
+        bars = value; 
+    });
+    export function generateBars():void {
+        bars = []; 
+        for(let i:number = 0; i < parseInt(numberOfBars); i++) { 
+            bars = [...bars, {height:generateRandomHeight(), id:i, color:barColor}]; 
+      }
+      
+      barsStore.set(bars);
+    }
     //generating random height for the bars 
     export function generateRandomHeight():number {
         return Math.floor(Math.random() * maxHeight) + minHeight;  
@@ -21,12 +28,13 @@
     generateBars(); 
 </script>
 
-{#each bars as bar}
+{#each $barsStore as bar}
 <div class="barContainer">
     <div bind:this={barAsDivElements[bar.id]} id="{bar.id.toString()}" class="bar" style="background-color: {bar.color}; height: {bar.height}px;">
     </div>
 </div>
 {/each}
+
 
 <style>
     .barContainer{
