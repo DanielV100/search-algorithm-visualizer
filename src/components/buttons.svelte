@@ -12,7 +12,6 @@
   }); 
   function test():void{
     setNumberOfBars("20"); 
-    generateBars(); 
   }
 </script>
 
