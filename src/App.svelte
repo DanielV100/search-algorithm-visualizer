@@ -1,14 +1,14 @@
 <script lang="ts">
-  import { typewriteHeading } from "./modules/heading.svelte";
-  import Bars from "./modules/bars.svelte";
+  import { typewriteHeading } from "./components/heading.svelte";
+  import Bars from "./components/bars.svelte";
   //This is the typewritter heading
-  import Heading from "./modules/heading.svelte";
+  import Heading from "./components/heading.svelte";
   //These are the buttons 
-  import Buttons from "./modules/buttons.svelte";
+  import Buttons from "./components/buttons.svelte";
   //This is the scrollbar to change the sorting speed
-  import SpeedScrollbar from "./modules/speedscrollbar.svelte";
+  import SpeedScrollbar from "./components/speedscrollbar.svelte";
   import { barColorDark, barColorLight, setBarColor } from "./variables/variables";
-  import Colortheme from "./modules/colortheme.svelte";
+  import Colortheme from "./components/colortheme.svelte";
   import { buttonColor, buttonColorDark, buttonColorLight } from "./variables/stores";
   window.onmouseover = typewriteHeading; 
   function init():void {

@@ -1,4 +1,4 @@
-import { barAsDivElements, generateBars, generateRandomHeight } from "../modules/bars.svelte";
+import { barAsDivElements, generateBars, generateRandomHeight } from "../components/bars.svelte";
 import { barColor, barColorEndSorting, delayEndSorting } from "../variables/variables";
 //all bars get yellowgreen after sorting 
 export async function endSorting() {
