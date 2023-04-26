@@ -1,36 +1,39 @@
 <script lang="ts" context="module">
+  import type { Bars } from "../types/interfaces";
     import { colors, barsStore } from "../variables/stores";
     import { maxHeight, minHeight, numberOfBars } from "../variables/variables";
-    //array stores bars in it 
-    export let bars = []; 
-    //here are all bars as div's
+    //array stores bars in it. An element is from type Bars which can be found in folder "types" 
+    export let bars:Bars = []; 
+    //here are all bars as DOM element 
     export let barAsDivElements = []; 
+   
+    //getting color for bars 
     let color:string;
-    
     colors.subscribe(value => {
         color = value; 
     }); 
+    //updating the bars array 
     barsStore.subscribe(value => {
-        barAsDivElements = []; 
-        console.log(barAsDivElements); 
+        barAsDivElements = [];  
         bars = value; 
     });
-
+    //calculates how many bars fit into the screen, because bars should be in one line
     function calcHowManyBarsFit():number {
-        //width - padding/bar width
+        //(screen width - padding)/bar width
         return Math.round((window.innerWidth-20)/29); 
     }
 
-    //iterating through the bars and give them random height, id and color
+    //generate new bars and store them in "bars" array
     export function generateBars(numberOfBars:number):void {
+        //resetting bars (otherwise the array would be conducted)
         bars = []; 
         for(let i:number = 0; i < numberOfBars; i++) { 
-            barAsDivElements = []; 
             bars = [...bars, {height:generateRandomHeight(), id:i, color:color}]; 
-      }
-      barsStore.set(bars);
+        }
+        //setting bars into barsStore 
+        barsStore.set(bars);
     }
-    //generating random height for the bars 
+    //generating random height for the bars (with max/min width)
     export function generateRandomHeight():number {
         return Math.floor(Math.random() * maxHeight) + minHeight;  
     }
