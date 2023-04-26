@@ -37,7 +37,7 @@
         bar.style.background = barColor;
       });
       localStorage.setItem("colorTheme", "light");
-      buttonColor.update(color => buttonColorDark); 
+      buttonColor.update(color => buttonColorLight)
       setIsDarkmode(false);
     } else {
       setBarColor(barColorDark);
@@ -47,7 +47,7 @@
         bar.style.background = barColorDark;
       });
       localStorage.setItem("colorTheme", "dark");
-      buttonColor.update(color => buttonColorLight)
+      buttonColor.update(color => buttonColorDark); 
       setIsDarkmode(true);
     }
   }
