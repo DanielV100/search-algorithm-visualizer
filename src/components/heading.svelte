@@ -1,8 +1,13 @@
 <script lang="ts" context="module">
   import { headingAsString, headingBegin, typewritterSpeed } from "../variables/stores";
     let counter:number = 0; 
+    function testFunc() {
+        console.log("Deleted mouseover")
+    }
 
     export function typewriteHeading():void {
+        window.removeEventListener("mouseover", typewriteHeading);
+        console.log("Test"); 
         //gets heading element from DOM 
         const headingElement = document.getElementById("typewritterHeading") as HTMLParagraphElement; 
         //adds step by step a letter (this is the so called typewritter effect)

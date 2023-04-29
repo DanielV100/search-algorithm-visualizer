@@ -21,6 +21,7 @@
 <button class="btn btn-secondary" on:click={insertionSort}>Insertion Sort</button>
 <button class="btn btn-secondary" on:click={selectionSort}>Selection Sort</button>
 
+
 <style>
     button {
       margin: 20px;

@@ -27,6 +27,7 @@
     export function generateBars(numberOfBars:number):void {
         //resetting bars (otherwise the array would be conducted)
         bars = []; 
+        
         for(let i:number = 0; i < numberOfBars; i++) { 
             bars = [...bars, {height:generateRandomHeight(), id:i, color:color}]; 
         }
@@ -40,6 +41,8 @@
     generateBars(calcHowManyBarsFit()); 
 </script>
 
+<!-- svelte-ignore module-script-reactive-declaration -->
+<!-- svelte-ignore module-script-reactive-declaration -->
 {#each $barsStore as bar}
 <div class="barContainer">
     <div bind:this={barAsDivElements[bar.id]} id="{bar.id.toString()}" class="bar" style="background-color: {bar.color}; height: {bar.height}px;">

@@ -1,6 +1,5 @@
 <script lang="ts">
   import { colors, colorDark, colorLight, isDarkmode, colorModeIcon, colorModeIconLight, colorModeIconDark } from "../variables/stores";
-
   import { barAsDivElements } from "./bars.svelte";
   let darkmode:boolean; 
   let color:string; 
@@ -9,7 +8,6 @@
   isDarkmode.subscribe(value => {
     darkmode = value; 
   }); 
-
   colors.subscribe(value => {
     color = value; 
   }); 
@@ -59,5 +57,4 @@
   }
   setSuitableIcon();
 </script>
-
 <svg on:click={changeColorTheme} xmlns="http://www.w3.org/2000/svg" height="48" viewBox="0 96 960 960" width="48"><path d={colorMode} /></svg>
