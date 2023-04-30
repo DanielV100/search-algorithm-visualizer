@@ -10,7 +10,7 @@ colors.subscribe(value => {
 })
 export async function insertionSort() {
     refreshBarsAfterSorting(); 
-    for(let i = 0; i < barAsDivElements.length; i++) {
+    for(let i:number = 0; i < barAsDivElements.length; i++) {
         let j:number = i; 
         let m:string = barAsDivElements[i].style.height; 
         while(j > 0 && parseInt(barAsDivElements[j-1].style.height) > parseInt(m)) { 
@@ -25,5 +25,24 @@ export async function insertionSort() {
         barAsDivElements[j].style.height = m; 
         barAsDivElements[j+1].style.background = color; 
     }
+    //More modern, but lowers readability
+    //for (const [i, bar] of barAsDivElements.entries()) {
+        let j = i;
+        let m = bar.style.height;
+        while (j > 0 && parseInt(barAsDivElements[j-1].style.height) > parseInt(m)) {
+            await new Promise(resolve => setTimeout(resolve, parseInt(sortingSpeedScrollbar.value)));
+            barAsDivElements[j].style.height = barAsDivElements[j-1].style.height;
+            barAsDivElements[j].style.background = barColorWhileSwapping;
+            if (j < barAsDivElements.length - 1) {
+                barAsDivElements[j+1].style.background = color;
+            }
+            j--;
+        }
+        barAsDivElements[j].style.height = m;
+        bar.style.background = color;
+        if (j < barAsDivElements.length - 1) {
+            barAsDivElements[j+1].style.background = color;
+        }
+    }*/
     endSorting(); 
 }
