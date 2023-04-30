@@ -5,7 +5,7 @@
     //array stores bars in it. An element is from type Bars which can be found in folder "types" 
     export let bars:Bars = []; 
     //here are all bars as DOM element 
-    export let barAsDivElements = []; 
+    export let barAsDivElements = []; //Typisierung fehlt! 
    
     //getting color for bars 
     let color:string;
@@ -27,12 +27,11 @@
     export function generateBars(numberOfBars:number):void {
         //resetting bars (otherwise the array would be conducted)
         bars = []; 
-        
         for(let i:number = 0; i < numberOfBars; i++) { 
             bars = [...bars, {height:generateRandomHeight(), id:i, color:color}]; 
         }
         //setting bars into barsStore 
-        barsStore.set(bars);
+       // barsStore.set(bars);
     }
     //generating random height for the bars (with max/min width)
     export function generateRandomHeight():number {
@@ -43,10 +42,9 @@
 
 <!-- svelte-ignore module-script-reactive-declaration -->
 <!-- svelte-ignore module-script-reactive-declaration -->
-{#each $barsStore as bar}
+{#each bars as bar}
 <div class="barContainer">
-    <div bind:this={barAsDivElements[bar.id]} id="{bar.id.toString()}" class="bar" style="background-color: {bar.color}; height: {bar.height}px;">
-    </div>
+    <div bind:this={barAsDivElements[bar.id]} id="{bar.id.toString()}" class="bar" style="background-color: {bar.color}; height: {bar.height}px;"></div>
 </div>
 {/each}
 
