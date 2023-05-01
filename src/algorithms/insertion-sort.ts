@@ -2,14 +2,14 @@ import { barAsDivElements } from "../components/bars.svelte";
 import { sortingSpeedScrollbar } from "../components/speedscrollbar.svelte";
 import { colors } from "../variables/stores";
 import { barColorWhileSwapping } from "../variables/variables";
-import { endSorting, refreshBarsAfterSorting } from "./algo-utils";
+import { endSorting, refreshBars } from "./algo-utils";
 
 let color:string; 
 colors.subscribe(value => {
     color = value; 
 })
 export async function insertionSort() {
-    refreshBarsAfterSorting(); 
+    refreshBars(); 
     for(let i:number = 0; i < barAsDivElements.length; i++) {
         let j:number = i; 
         let m:string = barAsDivElements[i].style.height; 
@@ -26,7 +26,7 @@ export async function insertionSort() {
         barAsDivElements[j+1].style.background = color; 
     }
     //More modern, but lowers readability
-    //for (const [i, bar] of barAsDivElements.entries()) {
+    /*for (const [i, bar] of barAsDivElements.entries()) {
         let j = i;
         let m = bar.style.height;
         while (j > 0 && parseInt(barAsDivElements[j-1].style.height) > parseInt(m)) {
@@ -44,5 +44,20 @@ export async function insertionSort() {
             barAsDivElements[j+1].style.background = color;
         }
     }*/
+   
+    //For-each: 
+    /*barAsDivElements.forEach(async (bar, i) => {
+        let j = i;
+        let m = bar.style.height;
+        while (j > 0 && parseInt(barAsDivElements[j-1].style.height) > parseInt(m)) {
+            await new Promise(resolve => setTimeout(resolve, parseInt(sortingSpeedScrollbar.value)));
+            barAsDivElements[j].style.height = barAsDivElements[j-1].style.height;
+            barAsDivElements[j].style.background = barColorWhileSwapping;
+            bar.style.background = color;
+            j--;
+        }
+        barAsDivElements[j].style.height = m;
+        barAsDivElements[j].style.background = color;
+    });*/
     endSorting(); 
 }

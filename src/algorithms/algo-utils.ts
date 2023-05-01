@@ -5,7 +5,7 @@ let color:string;
 colors.subscribe(value => {
     color = value; 
 }); 
-//all bars get yellowgreen after sorting 
+//all bars get yellowgreen after sorting / wieso nicht map()?
 export async function endSorting() {
     const delay = (delayInMs) => new Promise((resolve) => setTimeout(resolve, delayInMs));
     for (const bar of barAsDivElements) { 
@@ -14,7 +14,7 @@ export async function endSorting() {
     }
 }
 //all bars get another height and default color 
-export function refreshBarsAfterSorting() {
+export function refreshBars() {
     barAsDivElements.map((bar) => {
         bar.style.height = generateRandomHeight() + "px"; 
         bar.style.background = color; 

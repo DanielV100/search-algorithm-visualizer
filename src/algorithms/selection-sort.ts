@@ -2,14 +2,14 @@ import { barAsDivElements } from "../components/bars.svelte";
 import { sortingSpeedScrollbar } from "../components/speedscrollbar.svelte";
 import { colors } from "../variables/stores";
 import { barColorWhileSwapping } from "../variables/variables";
-import { endSorting, refreshBarsAfterSorting } from "./algo-utils";
+import { endSorting, refreshBars } from "./algo-utils";
 
 let color:string; 
 colors.subscribe(value => {
     color = value; 
 }); 
 export async function selectionSort() {
-    refreshBarsAfterSorting(); 
+    refreshBars(); 
     let marker:number = barAsDivElements.length - 1; 
     while(marker >= 0){
         let max:number = 0; 

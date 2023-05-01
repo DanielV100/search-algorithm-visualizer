@@ -2,7 +2,7 @@ import { barAsDivElements } from "../components/bars.svelte";
 import { sortingSpeedScrollbar } from "../components/speedscrollbar.svelte";
 import { colors } from "../variables/stores";
 import { barColorWhileSwapping } from "../variables/variables";
-import { endSorting, refreshBarsAfterSorting } from "./algo-utils";
+import { endSorting, refreshBars } from "./algo-utils";
 
 let color:string; 
 colors.subscribe(value => {
@@ -10,7 +10,7 @@ colors.subscribe(value => {
 }); 
 
 export async function bubbleSort() {
-    refreshBarsAfterSorting();
+    refreshBars();
     let swapped:boolean; 
     do {
         swapped = false; 
