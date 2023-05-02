@@ -5,8 +5,6 @@
     let barColorDark:string = "black"; 
     let barColorLight:string = "blueviolet"
     const barColorWhileSwapping:string = "red"; 
-    const maxHeight:number = 500;
-    const minHeight:number = 50; 
     let numberOfBars:string = "40"; 
     const delayEndSorting:number = 10; 
     const barColorEndSorting:string = "yellowgreen"; 
@@ -22,4 +20,4 @@ function setNumberOfBars(value:string):void{
 }
 
 
-    export { barColorWhileSwapping, scrollbarMax, scrollbarMin, scrollbarStep, scrollbarValue, maxHeight, minHeight, numberOfBars, delayEndSorting, barColorEndSorting, barColorDark, barColorLight, setNumberOfBars}; 
+    export { barColorWhileSwapping, scrollbarMax, scrollbarMin, scrollbarStep, scrollbarValue, numberOfBars, delayEndSorting, barColorEndSorting, barColorDark, barColorLight, setNumberOfBars}; 

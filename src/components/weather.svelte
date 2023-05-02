@@ -3,14 +3,14 @@
     let longitude:string; 
     let weather:string; 
 
+//try to get current location
 function getLocation() {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(makeAPICall);
-  } else { 
-    
-  }
+  } 
 }
 
+//get lat/log and make api call
 function makeAPICall(position) {
     latitude = position.coords.latitude; 
     longitude = position.coords.longitude;
@@ -19,17 +19,18 @@ function makeAPICall(position) {
     .then(data => {
         weather = data.current_weather.temperature + "°C"; 
         console.log(data.current_weather.temperature)
-        document.getElementById("weather").innerHTML = "- made with ❤️ by daniel / current weather: " +weather;
+        document.getElementById("weather").innerHTML = "- made with ❤️ by daniel / current temperature: " +weather;
     })
     .catch(error => {
-        document.getElementById("weather").innerHTML = "- made with ❤️ by daniel";
+        console.log("weather api call failed!")
     });
 }
+//init
 getLocation(); 
 </script>
 <footer class="bg-light text-center text-lg-start">
     <div id="weather" class="text-center p-1" style="background-color: rgba(0, 0, 0, 0.15);">
-      
+        - made with ❤️ by daniel
     </div>
   </footer>
   

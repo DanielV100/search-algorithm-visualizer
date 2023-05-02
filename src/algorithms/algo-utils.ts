@@ -1,4 +1,3 @@
-import { subscribe } from "svelte/internal";
 import { barAsDivElements, generateRandomHeight } from "../components/bars.svelte";
 import { colors } from "../variables/stores";
 import { barColorEndSorting, delayEndSorting } from "../variables/variables";
@@ -24,8 +23,9 @@ export function refreshBars() {
             bar.style.background = color; 
     });
 }
+//it happens that there are nulls in barAsDivElements - this shouldnt be the case, thats why they get sorted out
 export function getBarsWhichArentNull():any[] {
-    let barsToSortAsArray = []; 
+    let barsToSortAsArray:HTMLDivElement[] = []; 
     barAsDivElements.map(bar => {
         if(bar !== null) {
             barsToSortAsArray.push(bar); 

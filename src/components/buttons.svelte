@@ -1,15 +1,19 @@
 <script lang="ts">
+  //importing algorithms
   import { bubbleSort } from "../algorithms/bubble-sort";
   import { insertionSort } from "../algorithms/insertion-sort";
   import { selectionSort } from "../algorithms/selection-sort";
+  //importing color store 
   import { colors } from "../variables/stores";
-  import { setNumberOfBars } from "../variables/variables";
+  //importing function for generating bars
   import { generateBars } from "./bars.svelte";
-  let buttonColorValue:string; 
+
   //button color can be changed dynamically - just use buttonColor.update(clor => "{color}"); 
+  let buttonColorValue:string; 
   colors.subscribe(color => {
     buttonColorValue = color; 
   }); 
+  //on click of create bars button (inspiration: https://developer.mozilla.org/en-US/docs/Web/API/Window/prompt?retiredLocale=de)
   function createCertainAmountOfBars():void{
     let userInput:string = prompt("Please enter a number:");
     //check if the user entered a valid number

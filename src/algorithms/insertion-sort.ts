@@ -1,6 +1,4 @@
-import { barAsDivElements } from "../components/bars.svelte";
-import { sortingSpeedScrollbar } from "../components/speedscrollbar.svelte";
-import { colors } from "../variables/stores";
+import { colors, sortingSpeed } from "../variables/stores";
 import { barColorWhileSwapping } from "../variables/variables";
 import { endSorting, getBarsWhichArentNull, refreshBars } from "./algo-utils";
 
@@ -8,6 +6,10 @@ let color:string;
 colors.subscribe(value => {
     color = value; 
 })
+let sortSpeed; 
+sortingSpeed.subscribe(value => {
+    sortSpeed = value; 
+}); 
 export async function insertionSort() {
     let barsToSortArray = getBarsWhichArentNull(); 
     refreshBars(); 
@@ -15,7 +17,7 @@ export async function insertionSort() {
         let j:number = i; 
         let m:string = barsToSortArray[i].style.height; 
         while(j > 0 && parseInt(barsToSortArray[j-1].style.height) > parseInt(m)) { 
-            await new Promise(resolve => setTimeout(resolve, parseInt(sortingSpeedScrollbar.value))); 
+            await new Promise(resolve => setTimeout(resolve, sortSpeed)); 
             barsToSortArray[j].style.height = barsToSortArray[j-1].style.height; 
             barsToSortArray[j].style.background = barColorWhileSwapping; 
             if(j < barsToSortArray.length-1) {
