@@ -11,8 +11,13 @@
     buttonColorValue = color; 
   }); 
   function createCertainAmountOfBars():void{
-    setNumberOfBars("20");
-    generateBars(20);  
+    let userInput:string = prompt("Please enter a number:");
+    //check if the user entered a valid number
+    if (!isNaN(+userInput) && isFinite(+userInput) && userInput !== "") {
+      generateBars(+userInput);  
+    } else {
+      alert("Invalid input!"); 
+    }
   }
 </script>
 
