@@ -1,15 +1,28 @@
 <script lang="ts" context="module">
-    import axios from 'axios'; 
-    const params = {
-    access_key: 'b1c0719f6da3f0bc9cd0a13b456ce96f',
-    query: 'Mosbach'
-    }
+    let latitude:string; 
+    let longitude:string; 
+    let weather:string; 
 
-axios.get('http://api.weatherstack.com/current', {params})
-  .then(response => {
-    const apiResponse = response.data;
-    console.log(`Current temperature in ${apiResponse.location.name} is ${apiResponse.current.temperature}℃`);
-  }).catch(error => {
-    console.log(error);
-  });
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(makeAPICall);
+  } else { 
+    
+  }
+}
+
+function makeAPICall(position) {
+    latitude = position.coords.latitude; 
+    longitude = position.coords.longitude;
+    fetch(`https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&hourly=temperature_2m&current_weather=true`)
+    .then(response => response.json())
+    .then(data => {
+        weather = data.current_weather.temperature + "°C"; 
+        console.log(data.current_weather.temperature)
+        document.getElementById("weather").innerHTML = weather;
+    })
+    .catch(error => console.error(error));
+}
+getLocation(); 
 </script>
+<p id="weather"></p>
