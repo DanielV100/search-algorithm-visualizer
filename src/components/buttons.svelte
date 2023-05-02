@@ -1,4 +1,4 @@
-<script lang="ts">
+<script lang="ts" context="module">
   //importing algorithms
   import { bubbleSort } from "../algorithms/bubble-sort";
   import { insertionSort } from "../algorithms/insertion-sort";
@@ -7,6 +7,11 @@
   import { colors } from "../variables/stores";
   //importing function for generating bars
   import { generateBars } from "./bars.svelte";
+
+  export let buttonCreateBars:HTMLButtonElement = null; 
+  export let buttonBubbleSort:HTMLButtonElement = null; 
+  export let buttonInsertionSort:HTMLButtonElement = null; 
+  export let buttonSelectionSort:HTMLButtonElement = null; 
 
   //button color can be changed dynamically - just use buttonColor.update(clor => "{color}"); 
   let buttonColorValue:string; 
@@ -28,10 +33,10 @@
   }
 </script>
 
-<button class="btn btn-primary" on:click={createCertainAmountOfBars} style="background-color: {buttonColorValue}; border-color: {buttonColorValue};">Create bars</button>
-<button class="btn btn-secondary" on:click={bubbleSort}>Bubble Sort</button>
-<button class="btn btn-secondary" on:click={insertionSort}>Insertion Sort</button>
-<button class="btn btn-secondary" on:click={selectionSort}>Selection Sort</button>
+<button bind:this={buttonCreateBars} class="btn btn-primary" on:click={createCertainAmountOfBars} style="background-color: {buttonColorValue}; border-color: {buttonColorValue};">Create bars</button>
+<button bind:this={buttonBubbleSort} class="btn btn-secondary" on:click={bubbleSort}>Bubble Sort</button>
+<button bind:this={buttonInsertionSort} class="btn btn-secondary" on:click={insertionSort}>Insertion Sort</button>
+<button bind:this={buttonSelectionSort} class="btn btn-secondary" on:click={selectionSort}>Selection Sort</button>
 
 
 <style>
