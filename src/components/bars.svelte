@@ -1,6 +1,6 @@
 <script lang="ts" context="module">
     import type { Bars } from "../types/interfaces";
-    import { colors, barsStore, barsStoreAsDiv } from "../variables/stores";
+    import { colors, barsStore } from "../variables/stores";
     import { maxHeight, minHeight } from "../variables/variables";
     //array stores bars in it. An element is from type Bars which can be found in folder "types" 
     let bars:Bars = []; 
@@ -35,6 +35,7 @@
     export function generateRandomHeight():number {
         return Math.floor(Math.random() * maxHeight) + minHeight;  
     }
+
     generateBars(calcHowManyBarsFit()); 
 </script>
 

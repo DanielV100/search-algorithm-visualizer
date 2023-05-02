@@ -13,9 +13,12 @@
   function createCertainAmountOfBars():void{
     let userInput:string = prompt("Please enter a number:");
     //check if the user entered a valid number
-    if (!isNaN(+userInput) && isFinite(+userInput) && userInput !== "") {
+    if (!isNaN(+userInput) && isFinite(+userInput) && userInput !== "" && userInput !== null) {
       generateBars(+userInput);  
-    } else {
+    } else if (userInput == null) {
+      alert("Process canceled!"); 
+    } 
+    else {
       alert("Invalid input!"); 
     }
   }

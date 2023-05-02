@@ -2,37 +2,38 @@ import { barAsDivElements } from "../components/bars.svelte";
 import { sortingSpeedScrollbar } from "../components/speedscrollbar.svelte";
 import { colors } from "../variables/stores";
 import { barColorWhileSwapping } from "../variables/variables";
-import { endSorting, refreshBars } from "./algo-utils";
+import { endSorting, getBarsWhichArentNull, refreshBars } from "./algo-utils";
 
 let color:string; 
 colors.subscribe(value => {
     color = value; 
 }); 
 export async function selectionSort() {
+    let barsToSortArray = getBarsWhichArentNull(); 
     refreshBars(); 
-    let marker:number = barAsDivElements.length - 1; 
+    let marker:number = barsToSortArray.length - 1; 
     while(marker >= 0){
         let max:number = 0; 
         for(let i:number = 0; i <= marker; i++){
             await new Promise(resolve => setTimeout(resolve, parseInt(sortingSpeedScrollbar.value)));
-            if(parseInt(barAsDivElements[i].style.height) > parseInt(barAsDivElements[max].style.height)) {
+            if(parseInt(barsToSortArray[i].style.height) > parseInt(barsToSortArray[max].style.height)) {
                 max = i; 
             }
         }
-        let temp:string = barAsDivElements[marker].style.height; 
-        barAsDivElements[marker].style.height = barAsDivElements[max].style.height; 
-        barAsDivElements[max].style.height = temp; 
-        barAsDivElements[marker].style.background = barColorWhileSwapping; 
-        barAsDivElements[max].style.background = barColorWhileSwapping; 
-        for(let x:number = 0; x < barAsDivElements.length; x++) {
+        let temp:string = barsToSortArray[marker].style.height; 
+        barsToSortArray[marker].style.height = barsToSortArray[max].style.height; 
+        barsToSortArray[max].style.height = temp; 
+        barsToSortArray[marker].style.background = barColorWhileSwapping; 
+        barsToSortArray[max].style.background = barColorWhileSwapping; 
+        for(let x:number = 0; x < barsToSortArray.length; x++) {
             if((x != marker) && (x != max)) {
-                barAsDivElements[x].style.background = color; 
+                barsToSortArray[x].style.background = color; 
             }
         }
         marker--; 
     }
-    for (let y:number = 0; y < barAsDivElements.length; y++) {
-        barAsDivElements[y].style.background = color;
+    for (let y:number = 0; y < barsToSortArray.length; y++) {
+        barsToSortArray[y].style.background = color;
       }
     endSorting();  
 }
