@@ -14,6 +14,7 @@ const colorModeIcon:Writable<string> = writable(colorModeIconLight);
 
 //bars
 const barsStore = writable([]); 
+const barsStoreAsDiv = writable([]); 
 
 //heading 
 const typewritterSpeed:number = 40; 
@@ -32,4 +33,4 @@ function init():void {
   }
   init();
 
-export { colorLight, colorDark, barsStore, isDarkmode, typewritterSpeed, headingAsString, headingBegin, colors, colorModeIcon, colorModeIconDark, colorModeIconLight }
+export { colorLight, colorDark, barsStore, isDarkmode, typewritterSpeed, headingAsString, headingBegin, colors, colorModeIcon, colorModeIconDark, colorModeIconLight, barsStoreAsDiv }
