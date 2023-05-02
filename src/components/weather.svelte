@@ -19,10 +19,17 @@ function makeAPICall(position) {
     .then(data => {
         weather = data.current_weather.temperature + "°C"; 
         console.log(data.current_weather.temperature)
-        document.getElementById("weather").innerHTML = weather;
+        document.getElementById("weather").innerHTML = "- made with ❤️ by daniel / current weather: " +weather;
     })
-    .catch(error => console.error(error));
+    .catch(error => {
+        document.getElementById("weather").innerHTML = "- made with ❤️ by daniel";
+    });
 }
 getLocation(); 
 </script>
-<p id="weather"></p>
+<footer class="bg-light text-center text-lg-start">
+    <div id="weather" class="text-center p-1" style="background-color: rgba(0, 0, 0, 0.15);">
+      
+    </div>
+  </footer>
+  
