@@ -9,6 +9,7 @@
   import SpeedScrollbar from "./components/speedscrollbar.svelte";
   //this is the color theme switch (it's value is stored in local storage)
   import Colortheme from "./components/colortheme.svelte";
+  import Weather from "./components/weather.svelte";
   //on mouse hover comes the heading with typewritter effect
   window.addEventListener("mouseover", typewriteHeading);
 
@@ -21,5 +22,6 @@
   <SpeedScrollbar/>
 </div>
 <Bars/>
+<Weather/>
 
 
