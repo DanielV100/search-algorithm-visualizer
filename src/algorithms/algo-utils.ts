@@ -28,7 +28,7 @@ export function refreshBars() {
     });
 }
 //it happens that there are nulls in barAsDivElements - this shouldnt be the case, thats why they get sorted out
-export function getBarsWhichArentNull():any[] {
+export function getBarsWhichArentNull():HTMLDivElement[] {
     let barsToSortAsArray:HTMLDivElement[] = []; 
     barAsDivElements.map(bar => {
         if(bar !== null) {

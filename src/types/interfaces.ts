@@ -6,3 +6,5 @@ interface Bar{
     
 }
 export interface Bars extends Array<Bar>{}; 
+
+//Buttonfarbe ändert sich nicht korrekt
