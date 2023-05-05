@@ -11,7 +11,7 @@ sortingSpeed.subscribe(value => {
     sortSpeed = value; 
 }); 
 export async function insertionSort() {
-    let barsToSortArray = getBarsWhichArentNull(); 
+    let barsToSortArray:HTMLDivElement[] = getBarsWhichArentNull(); 
     refreshBars(); 
     for(let i:number = 0; i < barsToSortArray.length; i++) {
         let j:number = i; 
