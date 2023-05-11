@@ -1,5 +1,6 @@
 <script lang="ts" context="module">
   import { headingAsString, headingBegin, typewritterSpeed } from "../variables/stores";
+  import { colors } from "../variables/stores";
     let counter:number = 0; 
     export function typewriteHeading():void {
         //removing event handler from window
@@ -17,7 +18,7 @@
 </script>
 <div class="typewritterHeadingContainer">
     <p class="display-3">{headingBegin}</p>
-    <p id="typewritterHeading" class="display-3"></p>
+    <p id="typewritterHeading" class="display-3" style="color: {$colors};"></p>
 </div>
 
 <style>
