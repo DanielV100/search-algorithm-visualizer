@@ -2,6 +2,8 @@
     let latitude:string; 
     let longitude:string; 
     let weather:string; 
+    const d:Date = new Date();
+    const date:string = d.getFullYear() + "-" + (+d.getUTCMonth() + 1) + "-" + d.getDate(); 
 
 //try to get current location
 function getLocation() {
@@ -18,8 +20,8 @@ function makeAPICall(position) {
     .then(response => response.json())
     .then(data => {
         weather = data.current_weather.temperature + "°C"; 
-        console.log(data.current_weather.temperature)
-        document.getElementById("weather").innerHTML = "- made with ❤️ by daniel / current temperature: " +weather;
+        console.log(data.current_weather.temperature);
+        document.getElementById("weather").innerHTML = "- made with ❤️ by daniel / current temperature: " +weather + " / " + date;
     })
     .catch(error => {
         console.log("weather api call failed!")
