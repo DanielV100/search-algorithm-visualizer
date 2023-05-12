@@ -1,6 +1,6 @@
 import { colors, sortingSpeed } from "../variables/stores";
 import { barColorWhileSwapping } from "../variables/variables";
-import { endSorting, getBarsWhichArentNull, refreshBars } from "./algo-utils";
+import { endSorting, getBarsWhichArentNull, playSortSound, refreshBars } from "./algo-utils";
 
 let color:string; 
 colors.subscribe(value => {
@@ -42,6 +42,8 @@ export async function bubbleSort() {
                 }); 
             }
         }
+        //end of line --> play sound
+        playSortSound(); 
      } while(swapped); 
      endSorting(); 
 }

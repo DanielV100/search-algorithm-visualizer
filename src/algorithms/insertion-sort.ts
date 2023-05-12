@@ -6,7 +6,8 @@ let color:string;
 colors.subscribe(value => {
     color = value; 
 })
-let sortSpeed; 
+
+let sortSpeed:string; 
 sortingSpeed.subscribe(value => {
     sortSpeed = value; 
 }); 
@@ -17,7 +18,7 @@ export async function insertionSort() {
         let j:number = i; 
         let m:string = barsToSortArray[i].style.height; 
         while(j > 0 && parseInt(barsToSortArray[j-1].style.height) > parseInt(m)) { 
-            await new Promise(resolve => setTimeout(resolve, sortSpeed)); 
+            await new Promise(resolve => setTimeout(resolve, +sortSpeed)); 
             barsToSortArray[j].style.height = barsToSortArray[j-1].style.height; 
             barsToSortArray[j].style.background = barColorWhileSwapping; 
             if(j < barsToSortArray.length-1) {
