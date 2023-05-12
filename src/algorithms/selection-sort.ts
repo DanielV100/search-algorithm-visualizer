@@ -18,14 +18,14 @@ export async function selectionSort() {
     while(marker >= 0){
         let max:number = 0; 
         for(let i:number = 0; i <= marker; i++){
-            barsToSortArray[i].style.background = "blue"; 
+            barsToSortArray[i].style.background = "DarkMagenta"; 
             await new Promise(resolve => setTimeout(resolve, sortSpeed));
             if(parseInt(barsToSortArray[i].style.height) > parseInt(barsToSortArray[max].style.height)) {
                 max = i; 
                 for (let y:number = 0; y < marker; y++) {
                     barsToSortArray[y].style.background = color;
                 }
-                barsToSortArray[i].style.background = "red"; 
+                barsToSortArray[i].style.background = barColorWhileSwapping; 
             }
         }
         let temp:string = barsToSortArray[marker].style.height; 
