@@ -22,6 +22,7 @@ const typewritterSpeed:number = 40;
 const headingAsString:string = "how sorting works."; 
 const headingBegin:string = "See"; 
 
+const firstSorting:Writable<string> = writable("true"); 
 function init():void {
     let colorTheme:string = localStorage.getItem("colorTheme"); 
     if(colorTheme === "light") {
@@ -36,4 +37,4 @@ function init():void {
   }
   init();
 
-export { colorLight, colorDark, barsStore, typewritterSpeed, headingAsString, headingBegin, colors, colorModeIcon, colorModeIconDark, colorModeIconLight, maxHeight, minHeight, sortingSpeed }
+export { colorLight, colorDark, barsStore, typewritterSpeed, headingAsString, headingBegin, colors, colorModeIcon, colorModeIconDark, colorModeIconLight, maxHeight, minHeight, sortingSpeed, firstSorting }

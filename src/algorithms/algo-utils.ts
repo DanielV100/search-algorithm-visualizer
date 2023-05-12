@@ -1,5 +1,5 @@
 import { barAsDivElements, generateRandomHeight } from "../components/bars.svelte";
-import { colors, sortingSpeed } from "../variables/stores";
+import { colors, firstSorting, sortingSpeed } from "../variables/stores";
 import { barColorEndSorting, delayEndSorting } from "../variables/variables";
 import { buttonBubbleSort, buttonCreateBars, buttonInsertionSort, buttonSelectionSort } from "../components/buttons.svelte";
 let audioPing:HTMLAudioElement = new Audio('/src/assets/ping.mp3');
@@ -15,6 +15,12 @@ sortingSpeed.subscribe(value => {
     sortSpeedTest = +value; 
 }); 
 
+let isFirstSorting:string; 
+firstSorting.subscribe(value => {
+    isFirstSorting = value;  
+}); 
+
+
 //all bars get yellowgreen after sorting / wieso nicht map()?
 export async function endSorting() {
     audioSuccessSound.play(); 
@@ -27,15 +33,18 @@ export async function endSorting() {
         bar.style.boxShadow = "";
     }
     disableOrEnableButtons(false); 
+    firstSorting.set("false"); 
 }
 //all bars get another height and default color 
-export function refreshBars() {
+export function refreshBars():void {
     disableOrEnableButtons(true); 
-    let barsToSortArray = getBarsWhichArentNull(); 
-    barsToSortArray.map((bar) => {
+    if(isFirstSorting === "false") {
+        let barsToSortArray = getBarsWhichArentNull(); 
+        barsToSortArray.map((bar) => {
             bar.style.height = generateRandomHeight() + "px"; 
             bar.style.background = color; 
     });
+    }
 }
 //it happens that there are nulls in barAsDivElements - this shouldnt be the case, thats why they get sorted out
 export function getBarsWhichArentNull():HTMLDivElement[] {

@@ -12,7 +12,9 @@ sortingSpeed.subscribe(value => {
 
 //selection sort --> find the biggest and place it to the end 
 export async function selectionSort() {
+    //getting bars which aren't null
     let barsToSortArray:HTMLDivElement[] = getBarsWhichArentNull(); 
+    //refreshing bars when they are sorted (and (thatswhy) yellowgreen) 
     refreshBars(); 
     let marker:number = barsToSortArray.length - 1; 
     while(marker >= 0){
