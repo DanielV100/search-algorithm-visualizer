@@ -35,7 +35,7 @@ export async function endSorting() {
     disableOrEnableButtons(false); 
     firstSorting.set("false"); 
 }
-//all bars get another height and default color 
+//all bars get another height and default color (except at the fisrt sorting)
 export function refreshBars():void {
     disableOrEnableButtons(true); 
     if(isFirstSorting === "false") {
