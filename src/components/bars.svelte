@@ -2,9 +2,7 @@
     //interface with height, id, color
     import type { Bars } from "../types/interfaces";
     //importing stores 
-    import { colors, barsStore } from "../variables/stores";
-    //height of bars 
-    import { maxHeight, minHeight } from "../variables/stores";
+    import { colors, barsStore, maxHeight, minHeight } from "../variables/stores";
     //array stores bars in it. An element is from type Bars which can be found in folder "types" 
     let bars:Bars = []; 
     //here are all bars as HTMLDivElements (this is needed for the rendering) 

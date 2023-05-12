@@ -1,6 +1,5 @@
-import { colors, sortingSpeed } from "../variables/stores";
-import { barColorWhileSwapping } from "../variables/stores";
-import { endSorting, getBarsWhichArentNull, playSortSound, refreshBars } from "./algo-utils";
+import { colors, sortingSpeed, barColorWhileSwapping } from "../variables/stores";
+import { endSorting, getBarsWhichArentNull, refreshBars } from "./algo-utils";
 
 let color:string; 
 colors.subscribe(value => {
