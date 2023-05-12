@@ -1,10 +1,10 @@
 <script lang="ts" context="module">
   import { sortingSpeed } from "../variables/stores";
-  import { scrollbarMax, scrollbarMin, scrollbarStep, scrollbarValue } from "../variables/variables";
+  import { scrollbarMax, scrollbarMin, scrollbarStep, scrollbarValue } from "../variables/stores";
     //sorting speed 
     let sortingSpeedScrollbar:HTMLInputElement;
     export { sortingSpeedScrollbar }; 
-    
+
     function changeSortingSpeed():void {
         sortingSpeed.update(value => sortingSpeedScrollbar.value); 
     }

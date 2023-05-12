@@ -3,6 +3,7 @@ import { writable, type Writable } from "svelte/store";
 //colors 
 const colorLight:string  = "blueviolet"; 
 const colorDark:string = "black";
+const barColorWhileSwapping:string = "red";
 const colors:Writable<string> = writable(colorLight)
 
 //colortheme 
@@ -37,4 +38,17 @@ function init():void {
   }
   init();
 
-export { colorLight, colorDark, barsStore, typewritterSpeed, headingAsString, headingBegin, colors, colorModeIcon, colorModeIconDark, colorModeIconLight, maxHeight, minHeight, sortingSpeed, firstSorting }
+  let numberOfBars:string = "40"; 
+  const delayEndSorting:number = 30; 
+  const barColorEndSorting:string = "yellowgreen"; 
+  //scrollbar
+  const scrollbarMin:string = "0";
+  const scrollbarMax:string = "150";  
+  const scrollbarStep:string = "5.0"; 
+  const scrollbarValue:string = "75"; 
+
+
+function setNumberOfBars(value:string):void{
+  numberOfBars = value; 
+}
+export {numberOfBars, delayEndSorting, barColorEndSorting, scrollbarMax, scrollbarMin, scrollbarStep, scrollbarValue, colorLight, colorDark, barsStore, typewritterSpeed, headingAsString, headingBegin, colors, colorModeIcon, colorModeIconDark, colorModeIconLight, maxHeight, minHeight, sortingSpeed, firstSorting, barColorWhileSwapping, setNumberOfBars }; 

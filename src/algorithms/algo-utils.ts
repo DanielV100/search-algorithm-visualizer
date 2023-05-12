@@ -1,6 +1,6 @@
 import { barAsDivElements, generateRandomHeight } from "../components/bars.svelte";
 import { colors, firstSorting, sortingSpeed } from "../variables/stores";
-import { barColorEndSorting, delayEndSorting } from "../variables/variables";
+import { barColorEndSorting, delayEndSorting } from "../variables/stores";
 import { buttonBubbleSort, buttonCreateBars, buttonInsertionSort, buttonSelectionSort } from "../components/buttons.svelte";
 let audioPing:HTMLAudioElement = new Audio('/src/assets/ping.mp3');
 let audioSuccessSound:HTMLAudioElement = new Audio('/src/assets/success_sound.mp3');
@@ -63,6 +63,7 @@ function disableOrEnableButtons(state:boolean):void {
     buttonInsertionSort.disabled = state; 
     buttonSelectionSort.disabled = state; 
 }
+
 export function playSortSound():void {
     if(sortSpeedTest >= 75){ 
         audioPing.play(); 
