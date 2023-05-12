@@ -6,6 +6,7 @@ let color:string;
 colors.subscribe(value => {
     color = value; 
 }); 
+
 let sortSpeed; 
 sortingSpeed.subscribe(value => {
     sortSpeed = value; 
