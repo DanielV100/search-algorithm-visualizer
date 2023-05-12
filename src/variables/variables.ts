@@ -6,7 +6,7 @@
     let barColorLight:string = "blueviolet"
     const barColorWhileSwapping:string = "red"; 
     let numberOfBars:string = "40"; 
-    const delayEndSorting:number = 10; 
+    const delayEndSorting:number = 30; 
     const barColorEndSorting:string = "yellowgreen"; 
     //scrollbar
     const scrollbarMin:string = "0";
