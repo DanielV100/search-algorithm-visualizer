@@ -1,7 +1,10 @@
 <script lang="ts" context="module">
-  import { headingAsString, headingBegin, typewritterSpeed } from "../variables/stores";
-  import { colors } from "../variables/stores";
+    import { headingAsString, headingBegin, typewritterSpeed } from "../variables/stores";
+    import { colors } from "../variables/stores";
+    
+    //counter is used for the iteration through the heading in function "typewriteHeading"
     let counter:number = 0; 
+
     export function typewriteHeading():void {
         //removing event handler from window
         window.removeEventListener("mouseover", typewriteHeading);

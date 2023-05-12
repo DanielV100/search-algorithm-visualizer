@@ -10,12 +10,6 @@
     //here are all bars as HTMLDivElements (this is needed for the rendering) 
     export let barAsDivElements:HTMLDivElement[] = []; 
    
-    //getting color for bars 
-    let color:string;
-    colors.subscribe(value => {
-        color = value; 
-    }); 
-
     //calculates how many bars fit into the screen, because bars should be in one line
     function calcHowManyBarsFit():number {
         //(screen width - padding)/bar width
@@ -27,7 +21,7 @@
         //resetting bars (otherwise the array would be conducted and would get bigger and bigger)
         bars = []; 
         for(let i:number = 0; i < numberOfBars; i++) { 
-           bars = [...bars, {height:generateRandomHeight(), id:i, color:color}]; 
+           bars = [...bars, {height:generateRandomHeight(), id:i}]; 
         }
         //this triggers rerendering of the bars 
         barsStore.set(bars);
@@ -43,7 +37,7 @@
 
 {#each $barsStore as bar}
 <div class="barContainer">
-    <div bind:this={barAsDivElements[bar.id]} id="{bar.id.toString()}" class="bar" style="background-color: {bar.color}; height: {bar.height}px;"></div>
+    <div bind:this={barAsDivElements[bar.id]} id="{bar.id.toString()}" class="bar" style="background-color: {$colors}; height: {bar.height}px;"></div>
 </div>
 {/each}
 

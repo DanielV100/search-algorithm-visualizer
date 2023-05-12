@@ -1,14 +1,9 @@
 <script lang="ts">
   //importing color stores
   import { colors, colorDark, colorLight, colorModeIcon, colorModeIconLight, colorModeIconDark } from "../variables/stores";
-  //getting bars as DOM/Div-element 
-  import { barAsDivElements } from "./bars.svelte";
-  let color:string; 
+
   let colorMode:string; 
-  
-  colors.subscribe(value => {
-    color = value; 
-  }); 
+
   colorModeIcon.subscribe(value => {
     colorMode = value; 
   }); 
@@ -24,21 +19,15 @@
       colorModeIcon.update(value => colorModeIconLight); 
     }
   }
-  //changing the color theme on button click
+  //changing the color theme on button click and through local storage 
   function changeColorTheme() {
     if (localStorage.getItem("colorTheme") == "dark") {
       colors.update(value => colorLight); 
       colorModeIcon.update(value => colorModeIconLight); 
-      barAsDivElements.map((bar) => {
-        bar.style.background = color;
-      });
       localStorage.setItem("colorTheme", "light");
     } else {
       colors.update(value => colorDark);
       colorModeIcon.update(value => colorModeIconDark); 
-      barAsDivElements.map((bar) => {
-        bar.style.background = color;
-      });
       localStorage.setItem("colorTheme", "dark");
     }
   }

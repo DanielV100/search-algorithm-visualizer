@@ -3,8 +3,8 @@
   import { scrollbarMax, scrollbarMin, scrollbarStep, scrollbarValue } from "../variables/variables";
     //sorting speed 
     let sortingSpeedScrollbar:HTMLInputElement;
-
     export { sortingSpeedScrollbar }; 
+    
     function changeSortingSpeed():void {
         sortingSpeed.update(value => sortingSpeedScrollbar.value); 
     }
