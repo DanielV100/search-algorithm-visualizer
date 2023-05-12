@@ -11,7 +11,7 @@ sortingSpeed.subscribe(value => {
     sortSpeed = value; 
 }); 
 
-//insertion sort --> 
+//insertion sort --> like sorting a stack of cards
 export async function insertionSort() {
     let barsToSortArray:HTMLDivElement[] = getBarsWhichArentNull(); 
     refreshBars(); 
